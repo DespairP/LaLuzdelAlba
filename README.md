@@ -1,6 +1,6 @@
 
 <h1 align="center">
-<img width="90" src="https://raw.githubusercontent.com/DespairP/LaLuzdelAlba/master/src/main/resources/META-INF/logo.png"/>
+<img alt="-🌅-" width="90" src="https://raw.githubusercontent.com/DespairP/LaLuzdelAlba/master/src/main/resources/META-INF/logo.png"/>
 <br/>La Luz del Alba
 </h1>
 
