@@ -1,5 +1,7 @@
-<img style="height: 512px;width: 512px" src="https://raw.githubusercontent.com/DespairP/LaLuzdelAlba/master/src/main/resources/META-INF/logo.png"/>
-<h1 style="text-align: center">La Luz del Alba</h1>
+
+<h1 align="center">
+<img style="height: 512px;width: 512px;" src="https://raw.githubusercontent.com/DespairP/LaLuzdelAlba/master/src/main/resources/META-INF/logo.png"/>
+La Luz del Alba</h1>
 
 - - -
 > #### 一个基于Minecraft 1.16.5的环境Mod.
