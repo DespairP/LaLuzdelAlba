@@ -7,7 +7,7 @@ bin
 .project
 
 # idea
-/TODO*.md
+plans
 out
 *.ipr
 *.iws
