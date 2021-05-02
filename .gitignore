@@ -8,6 +8,7 @@ bin
 
 # idea
 plans
+*.md
 out
 *.ipr
 *.iws
