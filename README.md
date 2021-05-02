@@ -5,7 +5,7 @@
 </h1>
 
 - - -
-> #### 一个基于Minecraft 1.16.5的Forge Mod.
+> #### 一个基于Minecraft 1.16.5的环境Mod.
 > #### 正在开发中...
 
 ## **介绍**
@@ -13,7 +13,7 @@ La Luz del Alba 意指为“黎明之光”
 
 该名字取自于作曲家[硫酸ポリオミノ]的专辑[Vida]中
 
-La Luz del Alba关注于[???]，与Vida平行开发，但并不是Vida的附属
+La Luz del Alba关注于环境，与Vida平行开发，但并不是Vida的附属
 
 ## **备注**
 该Mod已参加🍵Teacon 2021
