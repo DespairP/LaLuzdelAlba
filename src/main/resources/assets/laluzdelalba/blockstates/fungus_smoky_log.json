@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=z": {
+      "x": 90,
+      "model": "laluzdelalba:block/fungus_smoky_log_horizontal"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "laluzdelalba:block/fungus_smoky_log_horizontal"
+    },
+    "axis=y": {
+      "model": "laluzdelalba:block/fungus_smoky_log"
+    }
+  }
+}

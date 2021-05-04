@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "laluzdelalba:block/logs/log_spiral_smoky_top",
+    "side": "laluzdelalba:block/logs/log_spiral_smoky"
+  }
+}
