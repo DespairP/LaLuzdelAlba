@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import teamHTBP.LaLuzdelAlba.Blocks.BlocksLoader;
 import teamHTBP.LaLuzdelAlba.Items.ItemBlocksLoader;
 import teamHTBP.LaLuzdelAlba.Items.ItemsLoader;
+import teamHTBP.LaLuzdelAlba.WorldGeneration.FeaturesLoader;
 
 @Mod("laluzdelalba")
 public class LaLuzdelAlba {
@@ -16,5 +17,6 @@ public class LaLuzdelAlba {
         new BlocksLoader();
         new ItemBlocksLoader();
         new ItemsLoader();
+        new FeaturesLoader();
     }
 }
