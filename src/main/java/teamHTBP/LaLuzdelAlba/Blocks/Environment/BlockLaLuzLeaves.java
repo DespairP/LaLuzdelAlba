@@ -37,6 +37,7 @@ public class BlockLaLuzLeaves extends Block{
     public BlockLaLuzLeaves(){
         this(AbstractBlock.Properties.of(Material.LEAVES)
                 .sound(SoundType.GRASS)
+                .randomTicks()
                 .noOcclusion()
                 .isSuffocating((var_1,var_2,var_3)->false)
                 .strength(0.2f)
@@ -83,7 +84,7 @@ public class BlockLaLuzLeaves extends Block{
     }
 
     private static int getDistanceAt(BlockState blockState) {
-        if (BlockTags.LOGS.contains(blockState.getBlock())) {
+        if (blockState.getBlock() instanceof BlockLaLuzLog || BlockTags.LOGS.contains(blockState.getBlock())) {
             return 0;
         } else {
             return blockState.getBlock() instanceof BlockLaLuzLeaves ? blockState.getValue(DISTANCE) : 7;

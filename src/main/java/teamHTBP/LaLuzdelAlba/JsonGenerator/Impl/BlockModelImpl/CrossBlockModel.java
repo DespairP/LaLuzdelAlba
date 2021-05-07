@@ -9,6 +9,16 @@ import java.util.Map;
 import static teamHTBP.LaLuzdelAlba.JsonGenerator.Helper.BlockStateWriterHelper.MOD_ID;
 
 public class CrossBlockModel implements IBlockModelJsonWriter {
+    private String textureName = "";
+    private String pathName = "";
+
+    public CrossBlockModel() {
+    }
+
+    public CrossBlockModel(String textureName, String pathName) {
+        this.textureName = textureName;
+        this.pathName = pathName + "/";
+    }
 
     @Override
     public String getParent() {
@@ -17,6 +27,7 @@ public class CrossBlockModel implements IBlockModelJsonWriter {
 
     @Override
     public Map<String, String> getTextures(String name) {
-        return ImmutableMap.of("cross",MOD_ID + ":block/" + name);
+        if(!textureName.equals("")) return ImmutableMap.of("cross",MOD_ID + ":block/" + pathName + textureName);
+        return ImmutableMap.of("cross",MOD_ID + ":block/" + pathName + name);
     }
 }

@@ -3,6 +3,7 @@ package teamHTBP.LaLuzdelAlba.JsonGenerator;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.CrossBlockModel;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.FullBlockModel;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.LogHorizonModel;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.BlockModelProperties;
@@ -24,7 +25,7 @@ public class BlockJsonGenerator {
 
     public void initialize(){
         blocks = ImmutableList.of(
-                new BlockModelProperties("spiral_smoky_log",BasicStateWriterGenerator.generateBasicLog(),new PillarBlockModel("log_spiral_smoky","log_spiral_smoky","logs"),new LogHorizonModel("log_spiral_smoky","log_spiral_smoky","logs"))
+                new BlockModelProperties("smoky_sapling",BasicStateWriterGenerator.generateNoneAxis(),new CrossBlockModel("sapling_smoky","plants"))
         );
 
     }
@@ -33,7 +34,7 @@ public class BlockJsonGenerator {
         blocks.forEach(blockModelProperties -> {
             try {
                 blockModelProperties.writeBlockState(gson);
-                blockModelProperties.writeBlockBasicModel(gson,"horizontal");
+                blockModelProperties.writeBlockBasicModel(gson);
                 blockModelProperties.writeItem(gson);
             } catch (Exception e) {
                 e.printStackTrace();

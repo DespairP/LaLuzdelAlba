@@ -31,4 +31,7 @@ public class ItemBlocksLoader {
     public static final RegistryObject<Item> SPIRAL_LEAVES = ITEMBLOCKS.register("spiral_smoky_leaves", () -> new BlockItem(BlocksLoader.SPIRAL_LEAVES.get(),BASIC_PROPERTY));
 
     public static final RegistryObject<Item> SMOKY_DIRT = ITEMBLOCKS.register("smoky_dirt", ()->new BlockItem(BlocksLoader.SMOKY_DIRT.get(),BASIC_PROPERTY));
+
+    public static final RegistryObject<Item> SMOKY_SAPLING = ITEMBLOCKS.register("smoky_sapling", ()->new BlockItem(BlocksLoader.SMOKY_SAPLING.get(),BASIC_PROPERTY));
+
 }
