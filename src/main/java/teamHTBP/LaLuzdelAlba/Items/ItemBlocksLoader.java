@@ -28,9 +28,12 @@ public class ItemBlocksLoader {
 
 
     public static final RegistryObject<Item> SMOKY_LEAVES = ITEMBLOCKS.register("smoky_leaves", () -> new BlockItem(BlocksLoader.SMOKY_LEAVES.get(),BASIC_PROPERTY));
-    public static final RegistryObject<Item> SPIRAL_LEAVES = ITEMBLOCKS.register("spiral_smoky_leaves", () -> new BlockItem(BlocksLoader.SPIRAL_LEAVES.get(),BASIC_PROPERTY));
+    public static final RegistryObject<Item> SPIRAL_LEAVES = ITEMBLOCKS.register("spiral_smoky_leaves", () -> new BlockItem(BlocksLoader.SPIRAL_SMOKY_LEAVES.get(),BASIC_PROPERTY));
 
     public static final RegistryObject<Item> SMOKY_DIRT = ITEMBLOCKS.register("smoky_dirt", ()->new BlockItem(BlocksLoader.SMOKY_DIRT.get(),BASIC_PROPERTY));
+    public static final RegistryObject<Item> SMOKY_GRASS = ITEMBLOCKS.register("smoky_grass", ()->new BlockItem(BlocksLoader.SMOKY_GRASS.get(),BASIC_PROPERTY));
+    public static final RegistryObject<Item> SMOKY_DEMO_GRASS = ITEMBLOCKS.register("demo_smoky_grass", ()->new BlockItem(BlocksLoader.SMOKY_GRASS_DEMO.get(),BASIC_PROPERTY));
+
 
     public static final RegistryObject<Item> SMOKY_SAPLING = ITEMBLOCKS.register("smoky_sapling", ()->new BlockItem(BlocksLoader.SMOKY_SAPLING.get(),BASIC_PROPERTY));
     public static final RegistryObject<Item> MARSH_SMOKY_SAPLING = ITEMBLOCKS.register("marsh_smoky_sapling", ()->new BlockItem(BlocksLoader.MARSH_SMOKY_SAPLING.get(),BASIC_PROPERTY));

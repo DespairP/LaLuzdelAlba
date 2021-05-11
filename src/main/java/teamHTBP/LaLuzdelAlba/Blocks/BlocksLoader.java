@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockLaLuzDirt;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockLaLuzLeaves;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockLaLuzLog;
+import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockSmokyGrass;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.Plants.BlockLaLuzSapling;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.Trees.GenMarshSmokyTree;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.Trees.GenNormalSmokyTree;
@@ -32,11 +33,14 @@ public class BlocksLoader {
 
     //从这里开始注册树叶
     public final static RegistryObject<Block> SMOKY_LEAVES = BLOCKS.register("smoky_leaves", BlockLaLuzLeaves::new);
-    public final static RegistryObject<Block> SPIRAL_LEAVES = BLOCKS.register("spiral_smoky_leaves", BlockLaLuzLeaves::new);
+    public final static RegistryObject<Block> SPIRAL_SMOKY_LEAVES = BLOCKS.register("spiral_smoky_leaves", BlockLaLuzLeaves::new);
 
 
     //从这里开始注册泥土
     public final static RegistryObject<Block> SMOKY_DIRT = BLOCKS.register("smoky_dirt", BlockLaLuzDirt::new);
+    public final static RegistryObject<Block> SMOKY_GRASS = BLOCKS.register("smoky_grass", BlockSmokyGrass::new);
+    public final static RegistryObject<Block> SMOKY_GRASS_DEMO = BLOCKS.register("demo_smoky_grass", BlockSmokyGrass::new);
+
 
     //从这里开始注册树苗
     public final static RegistryObject<Block> SMOKY_SAPLING = BLOCKS.register("smoky_sapling",()->new BlockLaLuzSapling(GenSmokyTree::new));
