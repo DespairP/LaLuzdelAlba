@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "laluzdelalba:block/plants/sapling_marsh_smoky"
+  }
+}

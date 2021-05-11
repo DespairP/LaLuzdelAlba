@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "laluzdelalba:block/plants/sapling_smoky"
+    "layer0": "laluzdelalba:block/plants/sapling_marsh_smoky"
   }
 }

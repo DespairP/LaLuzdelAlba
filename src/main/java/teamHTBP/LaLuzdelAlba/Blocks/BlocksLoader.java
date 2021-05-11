@@ -9,6 +9,8 @@ import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockLaLuzDirt;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockLaLuzLeaves;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.BlockLaLuzLog;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.Plants.BlockLaLuzSapling;
+import teamHTBP.LaLuzdelAlba.Blocks.Environment.Trees.GenMarshSmokyTree;
+import teamHTBP.LaLuzdelAlba.Blocks.Environment.Trees.GenNormalSmokyTree;
 import teamHTBP.LaLuzdelAlba.Blocks.Environment.Trees.GenSmokyTree;
 import teamHTBP.LaLuzdelAlba.LaLuzdelAlba;
 
@@ -18,7 +20,7 @@ public class BlocksLoader {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    /**方块的DefferedRegister*/
+    /**方块的DeferredRegister*/
     public final static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,LaLuzdelAlba.MODID);
 
     //从这里开始注册原木
@@ -38,5 +40,7 @@ public class BlocksLoader {
 
     //从这里开始注册树苗
     public final static RegistryObject<Block> SMOKY_SAPLING = BLOCKS.register("smoky_sapling",()->new BlockLaLuzSapling(GenSmokyTree::new));
+    public final static RegistryObject<Block> MARSH_SMOKY_SAPLING = BLOCKS.register("marsh_smoky_sapling",()->new BlockLaLuzSapling(GenMarshSmokyTree::new));
+    public final static RegistryObject<Block> NORMAL_SMOKY_SAPLING = BLOCKS.register("normal_smoky_sapling",()->new BlockLaLuzSapling(GenNormalSmokyTree::new));
 
 }

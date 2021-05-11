@@ -33,5 +33,7 @@ public class ItemBlocksLoader {
     public static final RegistryObject<Item> SMOKY_DIRT = ITEMBLOCKS.register("smoky_dirt", ()->new BlockItem(BlocksLoader.SMOKY_DIRT.get(),BASIC_PROPERTY));
 
     public static final RegistryObject<Item> SMOKY_SAPLING = ITEMBLOCKS.register("smoky_sapling", ()->new BlockItem(BlocksLoader.SMOKY_SAPLING.get(),BASIC_PROPERTY));
+    public static final RegistryObject<Item> MARSH_SMOKY_SAPLING = ITEMBLOCKS.register("marsh_smoky_sapling", ()->new BlockItem(BlocksLoader.MARSH_SMOKY_SAPLING.get(),BASIC_PROPERTY));
+    public static final RegistryObject<Item> NORMAL_SMOKY_SAPLING = ITEMBLOCKS.register("normal_smoky_sapling", ()->new BlockItem(BlocksLoader.NORMAL_SMOKY_SAPLING.get(),BASIC_PROPERTY));
 
 }

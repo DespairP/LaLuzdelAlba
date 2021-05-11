@@ -11,12 +11,16 @@ public class RandomUtils {
      * @return 如果min<max返回0,否则返回一个介于minValue和maxValue的随机数
      * */
     public static int nextIntBetween(Random random,int minValue,int maxValue){
-        if(minValue >= maxValue) return 0;
+        if(minValue > maxValue) return 0;
         return minValue + random.nextInt(1 + maxValue - minValue);
     }
 
     public static Direction nextDirection(Random random,Direction direction_1,Direction direction_2){
        return random.nextBoolean()?direction_1:direction_2;
+    }
+
+    public static Direction nextDirection(Random random,EnumCornerDirection2D corner){
+        return random.nextBoolean()?corner.getxDirection():corner.getzDirection();
     }
 
 }

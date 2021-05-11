@@ -13,6 +13,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.template.Template;
+import teamHTBP.LaLuzdelAlba.Utils.EnumCornerDirection2D;
 import teamHTBP.LaLuzdelAlba.Utils.RandomUtils;
 
 import java.util.Random;
@@ -26,7 +27,7 @@ public class LowShrubsFeature extends BasicTreeFeature{
     /**灌木丛*/
     protected final int foliageNumber;
     /**放置原木的side*/
-    private Direction side[];
+    private EnumCornerDirection2D side;
 
     public LowShrubsFeature(BlockState leavesBlock, BlockState logBlock, BlockState vineBlock, int minHeight, int maxHeight,int foliageNumber) {
         super(leavesBlock, logBlock, vineBlock, minHeight, maxHeight);
@@ -61,26 +62,27 @@ public class LowShrubsFeature extends BasicTreeFeature{
     public void generateChunks(IWorld world,BlockPos pos,Random random,int height,Set<BlockPos> changedLogs,MutableBoundingBox boundingBox){
         int baseHeight = height - minHeight + 1;
         generateCircle(world,pos.above(),logBlock, baseHeight,1, changedLogs,boundingBox);
-        Direction[] side = genRandomL(world, pos.offset(0,baseHeight + 1,0),logBlock,2,random,changedLogs,boundingBox);
+        this.side = genRandomL(world, pos.offset(0,baseHeight + 1,0),logBlock,2,random,changedLogs,boundingBox);
         setLogBlock(world,pos.offset(0, height,0),logBlock,changedLogs,boundingBox);
-        this.side = side;
     }
 
     /**生成树叶*/
     public void generateLeaves(IWorld world,BlockPos pos,Random random,int height,Set<BlockPos> changedLeaves,MutableBoundingBox boundingBox){
         int generatedLeaves = 0;
         //如果放置过原木,会产生side，在side的对面生成树叶
-        if(side != null && side.length == 2) {
-            Direction[] flipDirection=flipDirections(side);
-            System.out.println(flipDirection[0]+ " " +flipDirection[1]);
+        if(side != null) {
+            EnumCornerDirection2D flipCorner=side.getFlip();
             genL(world,
-                 pos.offset(flipDirection[0].getStepX(),nextIntBetween(random,height - minHeight + 2 , height - 1), flipDirection[1].getStepZ()).immutable(),
-                 leavesBlock, 1, side, changedLeaves,boundingBox);
+                 pos.offset(flipCorner.getStepX(),nextIntBetween(random,height - minHeight + 2 , height - 1), flipCorner.getStepZ()).immutable(),
+                 leavesBlock,
+                 1,
+                 side,
+                 changedLeaves,
+                 boundingBox);
             //生成底层树叶
-            Direction baseDirection = nextDirection(random,side[0],side[1]);
-            setBlocks(world,leavesBlock,changedLeaves, boundingBox,pos.offset(baseDirection.getStepX(),1 ,baseDirection.getStepZ()),
-                                                                   pos.offset(side[0].getStepX() + baseDirection.getStepX(),1 ,baseDirection.getStepZ()),
-                                                                   pos.offset(baseDirection.getStepX(),1 ,baseDirection.getStepZ() + side[1].getStepZ()));
+            Direction baseDirection = nextDirection(random,side);
+            setBlocks(world,leavesBlock,changedLeaves, boundingBox, pos.offset(side.getStepX() + baseDirection.getStepX(),1 ,baseDirection.getStepZ()),
+                                                                    pos.offset(baseDirection.getStepX(),1 ,baseDirection.getStepZ() + side.getStepZ()));
             generatedLeaves = 5;
             if(generatedLeaves < foliageNumber) return;
         }
@@ -92,20 +94,6 @@ public class LowShrubsFeature extends BasicTreeFeature{
                     leavesBlock,
                     changedLeaves,
                     boundingBox);
-    }
-
-    /**确认是否有空间生成树*/
-    @Override
-    public boolean check(IWorld reader, BlockPos pos, int height, int radius) {
-        for(int y = 0; y <= height; y++){
-            for(int x = -radius; x <= radius; x++){
-                for(int z = -radius; z <= radius; z++){
-                    BlockPos offsetPos = pos.offset(x,y,z);
-                    if(offsetPos.getY() >= 255 || !canReplace(reader,reader,offsetPos)) return false;
-                }
-            }
-        }
-        return true;
     }
 
     /**Builder*/

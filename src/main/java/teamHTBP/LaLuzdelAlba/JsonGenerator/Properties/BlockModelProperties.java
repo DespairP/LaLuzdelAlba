@@ -16,6 +16,7 @@ public class BlockModelProperties {
     IBlockStateJsonWriter jsonWriteState;
     IBlockModelJsonWriter jsonWriteModel;
     IBlockModelJsonWriter subWriter;
+    ItemModelJson itemModelJson;
     int generateModelJsonNumber = 1;
     public boolean generateSubModel = false;
     private static final String STATE_PATH  = "src\\main\\resources\\assets\\laluzdelalba\\blockstates";
@@ -26,6 +27,13 @@ public class BlockModelProperties {
         this.blockName = blockName;
         this.jsonWriteState = jsonWriteState;
         this.jsonWriteModel = jsonWriteModel;
+    }
+
+    public BlockModelProperties(String blockName, IBlockStateJsonWriter jsonWriteState, IBlockModelJsonWriter jsonWriteModel,ItemModelJson itemModelJson) {
+        this.blockName = blockName;
+        this.jsonWriteState = jsonWriteState;
+        this.jsonWriteModel = jsonWriteModel;
+        this.itemModelJson = itemModelJson;
     }
 
     public BlockModelProperties(String blockName, IBlockStateJsonWriter jsonWriteState, IBlockModelJsonWriter jsonWriteModel,int generateModelJsonNumber) {
@@ -81,7 +89,7 @@ public class BlockModelProperties {
     }
 
     public void writeItem(Gson gson) throws IOException {
-        ItemModelJson itemModelJson = new ItemModelJson(MODID +":block/" + blockName, null);
+        if(itemModelJson == null) itemModelJson = new ItemModelJson(MODID +":block/" + blockName, null);
         FileWriter writer = new FileWriter(ITEM_PATH + "\\" + blockName + ".json");
         gson.toJson(itemModelJson,ItemModelJson.class,writer);
         writer.close();

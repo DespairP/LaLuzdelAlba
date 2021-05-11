@@ -14,7 +14,8 @@ public class BlockRenderHandlers {
     public static void onRenderTypeSetup(FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(BlocksLoader.SMOKY_LEAVES.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(BlocksLoader.SPIRAL_LEAVES.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(BlocksLoader.SMOKY_SAPLING.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(BlocksLoader.SMOKY_SAPLING.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlocksLoader.MARSH_SMOKY_SAPLING.get(), RenderType.cutout());
 
     }
 
