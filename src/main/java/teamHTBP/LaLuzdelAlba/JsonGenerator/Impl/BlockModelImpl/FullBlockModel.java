@@ -10,12 +10,15 @@ import static teamHTBP.LaLuzdelAlba.JsonGenerator.Helper.BlockModelWriterHelper.
 
 public class FullBlockModel implements IBlockModelJsonWriter {
     private String textureName = "";
+    private String subPath = "";
 
     public FullBlockModel(String textureName) {
         this.textureName = textureName;
     }
 
-    public FullBlockModel() {
+    public FullBlockModel(String textureName,String subPath) {
+        this.textureName = textureName;
+        this.subPath = subPath + "/";
     }
 
     @Override
@@ -25,8 +28,8 @@ public class FullBlockModel implements IBlockModelJsonWriter {
 
     @Override
     public Map<String,String> getTextures(String name){
-        if(!textureName.equals("")) return ImmutableMap.of("all",MOD_ID + ":block/" + textureName);
-        return ImmutableMap.of("all",MOD_ID + ":block/" + name);
+        if(!textureName.equals("")) return ImmutableMap.of("all",MOD_ID + ":block/" + subPath + textureName);
+        return ImmutableMap.of("all",MOD_ID + ":block/" + subPath + name);
     }
 
 }

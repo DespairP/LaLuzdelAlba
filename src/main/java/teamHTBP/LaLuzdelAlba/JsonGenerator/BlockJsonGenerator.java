@@ -6,43 +6,54 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.CrossBlockModel;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.FullBlockModel;
-import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.LogHorizonModel;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.BlockModelProperties;
-import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockModelImpl.PillarBlockModel;
 import teamHTBP.LaLuzdelAlba.JsonGenerator.Impl.BlockStateImpl.BasicStateWriterGenerator;
-import teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.ItemModelJson;
+import teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.Attrs.ItemModelJson;
+import teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.BlockStateProperties;
+import teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.ItemProperties;
 
 import java.util.List;
 
 public class BlockJsonGenerator {
     private List<BlockModelProperties> blocks;
-
     private Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
-    public static void main(String[] args) throws Exception {
+    public static final BlockJsonGenerator GENERATOR = new BlockJsonGenerator();
+
+    public List<BlockStateProperties> blockStateProperties;
+    public List<BlockModelProperties> blockModelProperties;
+    public List<ItemProperties> itemProperties;
+
+    public static void main(String[] args){
         BlockJsonGenerator generator = new BlockJsonGenerator();
-        generator.initialize();
+        generator.initializeState();
+        generator.initializeModel();
+        generator.initializeItem();
         generator.write();
     }
 
-    public void initialize(){
-        blocks = ImmutableList.of(
-                new BlockModelProperties("smoky_sapling",BasicStateWriterGenerator.generateNoneAxis(),new CrossBlockModel("sapling_smoky","plants"),new ItemModelJson("minecraft:item/generated", ImmutableMap.of("layer0","vida:block/sapling_smoky"))),
-                new BlockModelProperties("marsh_smoky_sapling",BasicStateWriterGenerator.generateNoneAxis(),new CrossBlockModel("sapling_marsh_smoky","plants"),new ItemModelJson("minecraft:item/generated", ImmutableMap.of("layer0","vida:block/marsh_sapling_smoky")))
+    public void initializeState(){
+        blockStateProperties = ImmutableList.of(
+                new BlockStateProperties("marsh_smoky_planks", BasicStateWriterGenerator.generateNoneAxis())
+                );
+    }
 
+    public void initializeModel(){
+        blockModelProperties = ImmutableList.of(
+                new BlockModelProperties("marsh_smoky_planks",new FullBlockModel("plank_marsh_smoky_0","planks"))
         );
+    }
 
+    public void initializeItem(){
+        itemProperties = ImmutableList.of(
+                new ItemProperties("marsh_smoky_planks", "marsh_smoky_planks")
+        );
     }
 
     public void write(){
-        blocks.forEach(blockModelProperties -> {
-            try {
-                blockModelProperties.writeBlockState(gson);
-                blockModelProperties.writeBlockBasicModel(gson);
-                blockModelProperties.writeItem(gson);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+        blockStateProperties.forEach(x -> x.writeBlockState(gson));
+        blockModelProperties.forEach(x -> x.writeBlockBasicModel(gson));
+        itemProperties.forEach(x -> x.writeBlockState(gson));
     }
+
 }

@@ -20,6 +20,7 @@ public class BlockRenderHandlers {
         RenderTypeLookup.setRenderLayer(BlocksLoader.SMOKY_SAPLING.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlocksLoader.MARSH_SMOKY_SAPLING.get(), RenderType.cutout());
         RenderTypeLookup.setRenderLayer(BlocksLoader.SMOKY_GRASS.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlocksLoader.SPIRAL_SMOKY_GRASS.get(), RenderType.cutoutMipped());
 
     }
 

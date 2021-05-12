@@ -1,4 +1,4 @@
-package teamHTBP.LaLuzdelAlba.JsonGenerator.Properties;
+package teamHTBP.LaLuzdelAlba.JsonGenerator.Properties.Attrs;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,0 +1,9 @@
+{   "parent": "block/grass_block",
+    "textures": {
+        "particle": "laluzdelalba:block/dirt_smoky",
+        "bottom": "laluzdelalba:block/dirt_smoky",
+        "top": "laluzdelalba:block/spiral_smoky_grass_top",
+        "side": "laluzdelalba:block/spiral_smoky_grass_side",
+        "overlay": "laluzdelalba:block/spiral_smoky_grass_side"
+    }
+}

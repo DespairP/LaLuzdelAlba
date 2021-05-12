@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "laluzdelalba:block/planks/plank_marsh_smoky_1"
+  }
+}
