@@ -4,6 +4,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import teamHTBP.LaLuzdelAlba.Blocks.BlocksLoader;
+import teamHTBP.LaLuzdelAlba.Entities.EntitiesLoader;
 import teamHTBP.LaLuzdelAlba.Items.ItemBlocksLoader;
 import teamHTBP.LaLuzdelAlba.Items.ItemsLoader;
 import teamHTBP.LaLuzdelAlba.WorldGeneration.FeaturesLoader;
@@ -17,6 +18,7 @@ public class LaLuzdelAlba {
         new BlocksLoader();
         new ItemBlocksLoader();
         new ItemsLoader();
+        new EntitiesLoader();
         new FeaturesLoader();
     }
 }
